@@ -62,6 +62,9 @@ function calcFruitTax(): float {
 function calcWineTax(): float {
     return ($this->price * $this->amount)*0.21;
 }
+function calcDiscount50(): float {
+    return $this->price/2;
+}
 }
 $banana = new BasketItems("banana", 1, 6, "fruit");
 $apple = new BasketItems("apple", 1.5, 3, "fruit");
@@ -77,9 +80,16 @@ $bananaTax = $banana->calcFruitTax();
 $wineTax = $bottleOfWine->calcWineTax();
 
 
+
 $totalPrice = $totalBananaPrice + $totalApplePrice + $totalWinePrice;
 echo "<br>The total price of a fruit basket is: €$totalPrice.";
 
 $totalTax = $wineTax + $bananaTax + $appleTax;
 
 echo "<br>The total tax on a fruit basket is: €$totalTax.";
+
+// Use Case #2
+// Consider the same basket as in use case 1. The shop owner wants to have a way 
+// to have 50% off every fruit. Can you find a way to implement the discount once,
+// and re-use it efficiently for every fruit?
+
